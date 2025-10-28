@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Katarzhin_ISP_232_Lab_10
 {
@@ -10,7 +11,9 @@ namespace Katarzhin_ISP_232_Lab_10
         public string? University { get; set; }
         public override void SayHello()
         {
-            Console.WriteLine($"Hi! I {Name}, studying in {University}.");
+            base.SayHello();
+
+            Console.WriteLine($"Hi! I studying in {University}.");
         }
     }
 }
