@@ -7,21 +7,15 @@
         // Тут и так всё что я написал за это время видно что писал сам по времени коммитов, буду повнимательнее вредь
         static void Main(string[] args)
         {
-            List<ISound> sounds = new List<ISound>
-            {
-                new Bird(),
-                new Phone()
+            Animal[] animals = {
+                new Dog {Name = "Bobi"},
+                new Cat {Name = "Smokey"}
             };
-            foreach (var sound in sounds)
+            foreach (var animal in animals)
             {
-                sound.MakeSound();
+                animal.Info();
+                animal.MakeSound();
             }
-
-            Book book = new Book {Name = "War and peace" };
-            Console.WriteLine(book.Name);
-            Duck duck = new Duck();
-            ((IFlier)duck).Fly();
-            ((ISwimer)duck).Swim();
         }
     }
 }
