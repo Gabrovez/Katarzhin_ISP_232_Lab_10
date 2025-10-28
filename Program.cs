@@ -1,39 +1,31 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Katarzhin_ISP_232_Lab_10
 {
     internal class Program
     {
-        // Я когда альтабался поменять музыку забыл потом снять с паузы
-        //Надеюсь что простите, тут ничего такого сложного не было просто структуры из лабы писал и всё
-        // Тут и так всё что я написал за это время видно что писал сам по времени коммитов, буду повнимательнее вредь
-        static async Task Main()
+        delegate int MathOperation(int a, int b);
+        static void Main(string[] args)
         {
-            Console.WriteLine("Started cooking the dinner...");
-            await CookDinnerAsync();
-            Console.WriteLine("Dinner is ready!");
-        }
-        public static async  Task<string> MakeSoupAsync()
-        {
-            Console.WriteLine("Started cooking the soup...");
-            await Task.Delay(3000);
-            return "Soup";
-        }
-        public static async Task<string> MakeSaladAsync()
-        {
-            Console.WriteLine("Started choping the salad...");
-            await Task.Delay(1000);
-            return "Salad";
-        }
-        public static async Task CookDinnerAsync()
-        {
-            Task<string> soupTaks = MakeSoupAsync();
-            Task<string> saladTaks = MakeSaladAsync();
-            string soup = await soupTaks;
-            string salad = await saladTaks;
-            Console.WriteLine($"Ready: {soup} and {salad}");
+            MathOperation add = (a, b) => a + b;
+            Console.WriteLine(add(2, 3));
 
+            Func<int, int, int> sum = (a, b) => a + b;
+            Console.WriteLine(sum(3, 7));
+
+            Func<int, string> numberToWord = num =>
+            {
+                switch (num)
+                {
+                    case 1: return "one";
+                    case 2: return "two";
+                    default: return "too much";
+                }
+            };
+            Console.WriteLine(numberToWord(2));
         }
+       
 
 
 
