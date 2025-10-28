@@ -5,26 +5,27 @@
         // Я когда альтабался поменять музыку забыл потом снять с паузы
         //Надеюсь что простите, тут ничего такого сложного не было просто структуры из лабы писал и всё
         // Тут и так всё что я написал за это время видно что писал сам по времени коммитов, буду повнимательнее вредь
-        static async Task Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("1. Turn on the kettle...");
+            foreach (int number in GenerateNumbers())
+            {
+                Console.WriteLine($"Number received: {number}");
+            }
+        }
+        static IEnumerable<int> GenerateNumbers()
+        {
+            Console.WriteLine("Starting generation...");
+            yield return 1;
 
-            Task boilTask = BoilWateAsync();
-            Task sliceTask = SliceLemonAsync();
-            await Task.WhenAll(boilTask, sliceTask);
-            Console.WriteLine("4. Let's brew a tea with the lemon!");
+            Console.WriteLine("Pause...");
+            yield return 2;
+
+            Console.WriteLine("And one more time...");
+            yield return 3;
+
+            Console.WriteLine("Done!");
         }
-        static async Task BoilWateAsync() {
-            Console.WriteLine("2. Boil the water (wait for 3 sec)...");
-            await Task.Delay(3000);
-            Console.WriteLine("... water is boiled over!");
-        }
-        static async Task SliceLemonAsync()
-        {
-            Console.WriteLine("3. Slicing the lemon (wait for 2 sec)...");
-            await Task.Delay(2000);
-            Console.WriteLine("... lemon is sliced!");
-        }
+        
 
 
 
