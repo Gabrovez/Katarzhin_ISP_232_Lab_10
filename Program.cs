@@ -5,27 +5,27 @@ namespace Katarzhin_ISP_232_Lab_10
 {
     internal class Program
     {
-        delegate int MathOperation(int a, int b);
-        static void Main(string[] args)
+        static IEnumerable<string> WaitCoroutine()
         {
-            MathOperation add = (a, b) => a + b;
-            Console.WriteLine(add(2, 3));
-
-            Func<int, int, int> sum = (a, b) => a + b;
-            Console.WriteLine(sum(3, 7));
-
-            Func<int, string> numberToWord = num =>
-            {
-                switch (num)
-                {
-                    case 1: return "one";
-                    case 2: return "two";
-                    default: return "too much";
-                }
-            };
-            Console.WriteLine(numberToWord(2));
+            yield return "Wait ... 1 sec";
+            yield return "Wait ... 2 sec";
         }
-       
+        /*static void Main(string[] args)
+        {   
+            foreach(var step in WaitCoroutine())
+            {
+                Console.WriteLine(step);
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine("Done!");
+        }*/
+        static async Task Main()
+        {
+            Console.WriteLine("Wait ... 2 seconds");
+            await Task.Delay(2000);
+            Console.WriteLine("Done!");
+        }
+
 
 
 
