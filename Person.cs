@@ -9,7 +9,7 @@ namespace Katarzhin_ISP_232_Lab_10
     internal class Person
     {
         public string? Name { get; set; }
-        public void SayHello()
+        public virtual void SayHello()
         {
             Console.WriteLine($"Hi, my name is {Name}!");
         }
