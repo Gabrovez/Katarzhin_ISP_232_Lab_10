@@ -5,34 +5,15 @@ namespace Katarzhin_ISP_232_Lab_10
 {
     internal class Program
     {
-        static IEnumerable<string> WaitCoroutine()
+        static void Main(string[] args)
         {
-            yield return "Wait ... 1 sec";
-            yield return "Wait ... 2 sec";
+            Arena arena = new();
+            arena.AddUnit(new Warrior("Ragnar"));
+            arena.AddUnit(new Mage("Gendalf"));
+            arena.AddUnit(new Archer("Legolas"));
+            arena.StartBattle();
         }
-        /*static void Main(string[] args)
-        {   
-            foreach(var step in WaitCoroutine())
-            {
-                Console.WriteLine(step);
-                Thread.Sleep(1000);
-            }
-            Console.WriteLine("Done!");
-        }*/
-        static async Task Main()
-        {
-            Console.WriteLine("Wait ... 2 seconds");
-            await Task.Delay(2000);
-            Console.WriteLine("Done!");
-        }
-
-
-
-
-
-
-
-
+        
 
         static IEnumerable<int> GenerateNumbers()
         {
